@@ -1,0 +1,20 @@
+{
+    "name": "fighttheice/domain-parser",
+    "description": "Domain Parser",
+    "type": "library",
+    "require": {
+        "layershifter/tld-extract": "^1.2",
+        "true/punycode": "^2.1",
+        "webmozart/assert": "^1.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "William Knauss",
+            "email": "william.knauss@kingdom.com"
+        }
+    ],
+    "autoload": {
+        "classmap": ["src"]
+    }
+}
