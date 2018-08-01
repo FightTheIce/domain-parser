@@ -5,7 +5,11 @@ PHP Domain Name Parser
 $url = 'http://username:password@subdomain.hostname.com:9090/path?arg=value#anchor';
 
 $parser = new FightTheIce\Domain\Parser();
-$parser->parse($url);
+try {
+	$parser->parse($url);	
+} catch (Exception $e) {
+	throw $e;
+}
 
 echo $parser->getSubdomain() . PHP_EOL;
 echo $parser->getDomain() . PHP_EOL;
