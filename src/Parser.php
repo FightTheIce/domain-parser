@@ -8,18 +8,69 @@ use Webmozart\Assert\Assert;
 
 class Parser
 {
-    protected $url       = '';
-    protected $subdomain = '';
-    protected $domain    = '';
-    protected $gld       = '';
+    /**
+     * url
+     * The url object
+     *
+     * @access protected
+     * @var string
+     */
+    protected $url = '';
 
+    /**
+     * subdomain
+     * The subdomain that was extracted from
+     * the url object
+     *
+     * @access protected
+     * @var string
+     */
+    protected $subdomain = '';
+
+    /**
+     * domain
+     * The domain that was extracted from
+     * the url object
+     *
+     * @access protected
+     * @var string
+     */
+    protected $domain = '';
+
+    /**
+     * gld
+     * (Generic level domain) GLD that was
+     * extracted from the url object
+     *
+     * @access protected
+     * @var string
+     */
+    protected $gld = '';
+
+    /**
+     * __construct
+     * Class construct
+     *
+     * @access public
+     * @param string $url [description]
+     */
     public function __construct($url = '')
     {
+        //if the url parameter is not empty lets try
+        //parsing it
         if (!empty($this->url)) {
             $this->parse($url);
         }
     }
 
+    /**
+     * parse
+     * Parse the url object
+     *
+     * @access public
+     * @param  string $url [description]
+     * @return
+     */
     public function parse($url)
     {
         Assert::string($url);
@@ -88,26 +139,60 @@ class Parser
         return $this;
     }
 
+    /**
+     * getSubdomain
+     * Returns the parsed subdomain from the url object
+     *
+     * @access public
+     * @return string
+     */
     public function getSubdomain()
     {
         return $this->subdomain;
     }
 
+    /**
+     * getDomain
+     * Returns the parsed domain from the url object
+     *
+     * @access public
+     * @return string
+     */
     public function getDomain()
     {
         return $this->domain;
     }
 
+    /**
+     * getDomainName
+     * Alias of getDomain
+     * @return string
+     */
     public function getDomainName()
     {
-        return $this->domain;
+        return $this->getDomain();
     }
 
+    /**
+     * getGld
+     * (Generic level domain)
+     * Returns the parsed gld from the url object
+     *
+     * @access public
+     * @return string
+     */
     public function getGld()
     {
         return $this->gld;
     }
 
+    /**
+     * getUrl
+     * Returns the url object
+     *
+     * @access public
+     * @return string
+     */
     public function getUrl()
     {
         return $this->url;
